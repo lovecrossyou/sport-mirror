@@ -39,7 +39,7 @@ let AppNavigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Tab',
     defaultNavigationOptions: {
       gestureEnabled: true,
       headerBackTitleVisible: false

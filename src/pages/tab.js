@@ -51,7 +51,7 @@ export default createMaterialBottomTabNavigator(
         },
       },
     },
-    Transaction: {
+    Schedule: {
       screen: Schedule,
       navigationOptions: {
         tabBarLabel: 'Schedule',

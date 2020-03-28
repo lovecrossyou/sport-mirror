@@ -8,15 +8,28 @@ import {
     SafeAreaView,
     TouchableOpacity,
 } from 'react-native';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+import DefaultTabBar from '@/pages/components/tabbar';
 
-export default ({navigation}) => {
-    return <View style={styles.container}>
-        <Text>workout</Text>
-        <Button
-            title="Go to Login"
-            onPress={() => navigation.navigate('Login')}
-        />
-    </View>
+import Classes from './classes';
+import Programs from './programs';
+
+export default ({ navigation }) => {
+    return (
+        <SafeAreaView style={styles.container}>
+            <ScrollableTabView
+                tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
+                initialPage={0}
+                tabBarActiveTextColor={'#000000'}
+                tabBarInactiveTextColor={'#999999'}
+                textStyle={styles.textStyle}
+                renderTabBar={() => <DefaultTabBar backgroundColor={'#fff'} />}
+            >
+                <Classes tabLabel='Classes' />
+                <Programs tabLabel='Programs' />
+            </ScrollableTabView>
+        </SafeAreaView>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -24,6 +37,14 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#fff',
     },
+    tabBarUnderlineStyle: {
+        width: 50,
+        alignItems: 'center',
+        color:'#000'
+    },
+    textStyle: {
+        fontSize: 40
+    }
 });
