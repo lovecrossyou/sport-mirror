@@ -6,7 +6,7 @@ import {
   FlatList,
   SafeAreaView,
   TouchableOpacity,
-    ScrollView
+  ScrollView
 } from 'react-native';
 import Tiltle from '@/pages/components/title';
 import WeekPanel from './components/week';
@@ -15,16 +15,16 @@ import Daily from './components/daily';
 export default () => {
   return (
     <SafeAreaView style={styles.container}>
-        <Tiltle name="WEEKLY GOAL"></Tiltle>
-        <WeekPanel />
+      <Tiltle name="WEEKLY GOAL"></Tiltle>
+      <WeekPanel />
 
-       <ScrollView alwaysBounceHorizontal={false}>
-           <Tiltle name="WEEKLY SUMMARY"></Tiltle>
-           <Summary />
+      <ScrollView alwaysBounceHorizontal={false} style={{ width: '100%' }}>
+        <Tiltle name="WEEKLY SUMMARY"></Tiltle>
+        <Summary />
 
-           <Tiltle name="DAILY SUMMARY"></Tiltle>
-           <Daily />
-       </ScrollView>
+        <Tiltle name="DAILY SUMMARY"></Tiltle>
+        <Daily />
+      </ScrollView>
     </SafeAreaView>
   )
 }

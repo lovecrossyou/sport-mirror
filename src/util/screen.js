@@ -11,7 +11,7 @@ let fontScale = PixelRatio.getFontScale();
 let pixelRatio = PixelRatio.get();
 
 const designWidth = 750.0;
-const designHeight = 1334.0;
+const designHeight = 1624.0;
 
 let screenPxW = PixelRatio.getPixelSizeForLayoutSize(screenW);
 let screenPxH = PixelRatio.getPixelSizeForLayoutSize(screenH);
@@ -22,6 +22,22 @@ export const safeAreaViewHeight = isIphoneX() ? 34 : 0;
 export const width = Dimensions.get('window').width;
 //手机屏幕的高度
 export const height = Dimensions.get('window').height;
+
+
+
+
+
+const dp2px = dp=>PixelRatio.getPixelSizeForLayoutSize(dp);
+const px2dp = px=>PixelRatio.roundToNearestPixel(px);
+
+
+
+
+
+
+
+
+
 
 /**
  * set text

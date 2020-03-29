@@ -15,7 +15,9 @@ import heart_n from '@/images/workout/heart_n.png';
 
 export default () => {
     return <View style={styles.item}>
-        <Image style={styles.icon} resizeMode="contain" source={{ uri: 'http://i4.article.fd.zol-img.com.cn/t_w1/g5/M00/04/0A/ChMkJ1fiT5mIMZIQAAH13yoi9PcAAWPwwLDSzwAAfX3174.jpg' }}></Image>
+        <Image style={styles.icon} resizeMode="contain" source={{ uri: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2754018954,2350021655&fm=26&gp=0.jpg' }}></Image>
+
+
         <View style={styles.infos}>
             <Text style={styles.title}>CARDIO: BOOTCAMP</Text>
             <Text style={styles.name}>SELINA</Text>
@@ -29,6 +31,7 @@ export default () => {
                 <Image resizeMode='contain' source={heart_n} style={styles.items_icon} />
             </View>
         </View>
+
     </View>
 }
 
@@ -40,14 +43,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: scaleSizeW(64),
+        paddingVertical: scaleSizeH(60),
+        alignItems:'center'
     },
     icon: {
         width: scaleSizeW(280),
         height: scaleSizeH(420)
     },
     infos: {
-        paddingTop: scaleSizeH(65),
-        paddingBottom: scaleSizeH(70),
+        // paddingTop: scaleSizeH(65),
+        // paddingBottom: scaleSizeH(70),
     },
     title: {
         fontSize: setSpText(32),
