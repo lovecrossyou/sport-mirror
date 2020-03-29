@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { width, setSpText } from '@/util/screen';
 import { scaleSizeW, scaleSizeH } from '../../util/screen';
 
@@ -10,12 +10,12 @@ const DefaultTabBar = ({ tabs = [], defaultIndex = 0,onChange }) => {
     <View style={styles.tabs}>
       {tabs.map((name, index) => {
         return (
-          <TouchableWithoutFeedback key={index} onPress={() => onChange(index)}>
+          <TouchableOpacity key={index} onPress={() => onChange(index)}>
             <View style={styles.tab}>
               <Text style={[defaultIndex === index ? styles.active_text : styles.text]}>{name}</Text>
               <View style={[defaultIndex === index ? styles.active_indicator : styles.indicator]}></View>
             </View>
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
         )
       })}
     </View>
