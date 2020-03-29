@@ -13,11 +13,9 @@ const ScrollTabView = () => {
         var offsetX = e.nativeEvent.contentOffset.x;
         const index = offsetX / width;
         setIndex(index);
-        // scrollTo(index)
     }
 
     const scrollTo = index => {
-        console.log('scrollTo ', index);
         scrollViewRef.current.scrollTo({ x: width * index, y: 0, animated: true })
     }
     return <>

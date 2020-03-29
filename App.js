@@ -22,6 +22,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Tab from '@/pages/tab';
 import Login from '@/pages/login';
+import ScheduleDetail from '@/pages/schedule/detail';
 
 let AppNavigator = createStackNavigator(
   {
@@ -37,6 +38,12 @@ let AppNavigator = createStackNavigator(
         headerShown: false,
       }),
     },
+    scheduleDetail:{
+      screen:ScheduleDetail,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle:'STRENGTH',
+      }),
+    }
   },
   {
     initialRouteName: 'Tab',

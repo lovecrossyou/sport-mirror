@@ -4,7 +4,7 @@ import {FlatList, View,StyleSheet} from 'react-native';
 import ClassItem from './components/class-item';
 import { width, scaleSizeH, setSpText } from '@/util/screen';
 
-export default () => {
+export default props => {
     return (
         <FlatList
             ItemSeparatorComponent={()=><View style={styles.separator}></View>}

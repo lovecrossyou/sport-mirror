@@ -6,18 +6,18 @@ import {
     Button,
     FlatList,
     SafeAreaView,
-    TouchableOpacity,
+    TouchableWithoutFeedback,
     Image
 } from 'react-native';
 import { scaleSizeW, scaleSizeH, setSpText } from '@/util/screen';
+import { withNavigation } from 'react-navigation';
+
 import heart from '@/images/workout/heart.png';
 import heart_n from '@/images/workout/heart_n.png';
 
-export default () => {
-    return <View style={styles.item}>
+export default withNavigation(props => {
+    return <TouchableWithoutFeedback onPress={() => props.navigation.navigate('scheduleDetail')}><View style={styles.item}>
         <Image style={styles.icon} resizeMode="contain" source={{ uri: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2754018954,2350021655&fm=26&gp=0.jpg' }}></Image>
-
-
         <View style={styles.infos}>
             <Text style={styles.title}>CARDIO: BOOTCAMP</Text>
             <Text style={styles.name}>SELINA</Text>
@@ -31,9 +31,9 @@ export default () => {
                 <Image resizeMode='contain' source={heart_n} style={styles.items_icon} />
             </View>
         </View>
-
     </View>
-}
+    </TouchableWithoutFeedback>
+})
 
 const styles = StyleSheet.create({
     item: {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: scaleSizeW(64),
         paddingVertical: scaleSizeH(60),
-        alignItems:'center'
+        alignItems: 'center'
     },
     icon: {
         width: scaleSizeW(280),
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         fontSize: setSpText(24),
         color: '#777777',
         textAlign: 'right',
-        fontWeight:'500'
+        fontWeight: '500'
     },
     create: {
         fontSize: setSpText(24),
