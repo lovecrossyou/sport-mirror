@@ -8,26 +8,13 @@ import {
     SafeAreaView,
     TouchableOpacity,
 } from 'react-native';
-import ScrollableTabView from 'react-native-scrollable-tab-view';
-import DefaultTabBar from '@/pages/components/tabbar';
+import ScrollTabView from './components/scroll-tab';
 
-import Classes from './classes';
-import Programs from './programs';
 
 export default ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollableTabView
-                tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
-                initialPage={0}
-                tabBarActiveTextColor={'#000000'}
-                tabBarInactiveTextColor={'#999999'}
-                textStyle={styles.textStyle}
-                renderTabBar={() => <DefaultTabBar backgroundColor={'#fff'} />}
-            >
-                <Classes tabLabel='Classes' />
-                <Programs tabLabel='Programs' />
-            </ScrollableTabView>
+            <ScrollTabView/>
         </SafeAreaView>
     );
 }

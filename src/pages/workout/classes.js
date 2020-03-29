@@ -2,7 +2,7 @@ import React from 'react';
 
 import {FlatList, View,StyleSheet} from 'react-native';
 import ClassItem from './components/class-item';
-import { scaleSizeW, scaleSizeH, setSpText } from '@/util/screen';
+import { width, scaleSizeH, setSpText } from '@/util/screen';
 
 export default () => {
     return (
@@ -16,7 +16,7 @@ export default () => {
 
 const styles = StyleSheet.create({
     separator:{
-        width:'100%',
+        width:width,
         height:scaleSizeH(26),
         backgroundColor:'#f5f5f5'
     }

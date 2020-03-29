@@ -993,6 +993,11 @@
   resolved "https://registry.npm.taobao.org/@react-native-community/viewpager/download/@react-native-community/viewpager-2.0.2.tgz#622b190294b1310c4825c98daeaee1c8443f7124"
   integrity sha1-YisZApSxMQxIJcmNrq7hyEQ/cSQ=
 
+"@react-native-community/viewpager@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.npm.taobao.org/@react-native-community/viewpager/download/@react-native-community/viewpager-3.3.0.tgz#e613747a43a31a6f3278f817ba96fdaaa7941f23"
+  integrity sha1-5hN0ekOjGm8yePgXupb9qqeUHyM=
+
 "@react-navigation/core@^3.7.2":
   version "3.7.2"
   resolved "https://registry.npm.taobao.org/@react-navigation/core/download/@react-navigation/core-3.7.2.tgz#c1467b9b7902bdfa48e37ea53570074b82fb7923"

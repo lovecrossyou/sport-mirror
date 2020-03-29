@@ -1,112 +1,37 @@
-const React = require('react');
-const { ViewPropTypes } = ReactNative = require('react-native');
-const PropTypes = require('prop-types');
-const createReactClass = require('create-react-class');
-const {
-  StyleSheet,
-  Text,
-  View,
-  Animated,
-} = ReactNative;
-const Button = require('./button');
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { width, setSpText } from '@/util/screen';
+import { scaleSizeW, scaleSizeH } from '../../util/screen';
 
-const DefaultTabBar = createReactClass({
-  propTypes: {
-    goToPage: PropTypes.func,
-    activeTab: PropTypes.number,
-    tabs: PropTypes.array,
-    backgroundColor: PropTypes.string,
-    activeTextColor: PropTypes.string,
-    inactiveTextColor: PropTypes.string,
-    textStyle: Text.propTypes.style,
-    tabStyle: ViewPropTypes.style,
-    renderTab: PropTypes.func,
-    underlineStyle: ViewPropTypes.style,
-  },
 
-  getDefaultProps() {
-    return {
-      activeTextColor: 'navy',
-      inactiveTextColor: 'black',
-      backgroundColor: null,
-    };
-  },
 
-  renderTabOption(name, page) {
-  },
-
-  renderTab(name, page, isTabActive, onPressHandler) {
-    const { activeTextColor, inactiveTextColor, textStyle, } = this.props;
-    const textColor = isTabActive ? activeTextColor : inactiveTextColor;
-    const fontWeight = isTabActive ? 'bold' : 'normal';
-
-    return <Button
-      style={{flex: 1, }}
-      key={name}
-      accessible={true}
-      accessibilityLabel={name}
-      accessibilityTraits='button'
-      onPress={() => onPressHandler(page)}
-    >
-      <View style={[styles.tab, this.props.tabStyle, ]}>
-        <Text style={[{color: textColor, fontWeight, fontSize:20}, textStyle, ]}>
-          {name}
-        </Text>
-      </View>
-    </Button>;
-  },
-
-  render() {
-    const containerWidth = this.props.containerWidth;
-    const numberOfTabs = this.props.tabs.length;
-    const tabUnderlineStyle = {
-      position: 'absolute',
-      width:50,
-      height: 4,
-      backgroundColor: '#000',
-      bottom: 0,
-    };
-
-    const itemW = containerWidth / numberOfTabs ;
-    const offsetX = (containerWidth / numberOfTabs -50)/2;
-    const lastOffsetX = (numberOfTabs - 1) * itemW + offsetX;
-
-    const translateX = this.props.scrollValue.interpolate({
-      inputRange: [0, 1],
-      outputRange: [offsetX,  lastOffsetX],
-    });
-    return (
-      <View style={[styles.tabs, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}>
-        {this.props.tabs.map((name, page) => {
-          const isTabActive = this.props.activeTab === page;
-          const renderTab = this.props.renderTab || this.renderTab;
-          return renderTab(name, page, isTabActive, this.props.goToPage);
-        })}
-        <Animated.View
-          style={[
-            tabUnderlineStyle,
-            {
-              transform: [
-                { translateX },
-              ]
-            },
-            this.props.underlineStyle,
-          ]}
-        />
-      </View>
-    );
-  },
-});
-
+const DefaultTabBar = ({ tabs = [], defaultIndex = 0,onChange }) => {
+  return (
+    <View style={styles.tabs}>
+      {tabs.map((name, index) => {
+        return (
+          <TouchableWithoutFeedback key={index} onPress={() => onChange(index)}>
+            <View style={styles.tab}>
+              <Text style={[defaultIndex === index ? styles.active_text : styles.text]}>{name}</Text>
+              <View style={[defaultIndex === index ? styles.active_indicator : styles.indicator]}></View>
+            </View>
+          </TouchableWithoutFeedback>
+        )
+      })}
+    </View>
+  )
+}
 const styles = StyleSheet.create({
   tab: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingBottom: 10,
+    width: width,
+    height: scaleSizeH(120),
+    position: 'relative'
   },
   tabs: {
-    height: 50,
+    height: scaleSizeH(120),
     flexDirection: 'row',
     justifyContent: 'space-around',
     borderWidth: 1,
@@ -114,7 +39,37 @@ const styles = StyleSheet.create({
     borderLeftWidth: 0,
     borderRightWidth: 0,
     borderColor: '#ccc',
+    backgroundColor: '#fff',
+    width: width
   },
+  active_text: {
+    fontSize: setSpText(40),
+    fontWeight: 'bold',
+    color: '#000'
+  },
+  text: {
+    fontSize: setSpText(40),
+    fontWeight: 'bold',
+    color: '#999'
+  },
+
+  active_indicator: {
+    width: scaleSizeW(54),
+    height: scaleSizeH(5),
+    backgroundColor: '#000',
+    marginTop: scaleSizeH(32),
+    position: 'absolute',
+    bottom: 0
+  },
+  indicator: {
+    width: scaleSizeW(54),
+    height: scaleSizeH(5),
+    backgroundColor: '#999',
+    marginTop: scaleSizeH(32),
+    opacity: 0,
+    position: 'absolute',
+    bottom: 0
+  }
 });
 
 module.exports = DefaultTabBar;
