@@ -14,7 +14,7 @@ import {
   View,
   Text,
   StatusBar,
-  Image
+  Image,
 } from 'react-native';
 import { AppRegistry } from 'react-native';
 
@@ -49,7 +49,15 @@ let AppNavigator = createStackNavigator(
     initialRouteName: 'Tab',
     defaultNavigationOptions: {
       gestureEnabled: true,
-      headerBackTitleVisible: false
+      headerBackTitleVisible: false,
+      headerStyle:{
+        // backgroundColor: Theme.navColor,
+        shadowColor: 'transparent',
+        shadowOpacity: 0,
+        borderBottomWidth: 0,
+        borderBottomColor: 'transparent',
+        elevation: 0,
+      }
     },
   },
 );

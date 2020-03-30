@@ -22,7 +22,7 @@ const ScrollTabView = () => {
         <DefaultTabBar tabs={['Classes', 'Programs']} defaultIndex={index} onChange={scrollTo} />
         <ScrollView
             ref={scrollViewRef}
-            onScroll={onScroll}
+            onMomentumScrollEnd={onScroll}
             pagingEnabled={true}
             showsHorizontalScrollIndicator={false}
             alwaysBounceVertical={false}
