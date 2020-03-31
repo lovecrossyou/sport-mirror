@@ -6,13 +6,14 @@ import {
     Button,
     FlatList,
     SafeAreaView,
-    TouchableOpacity,
+    TouchableWithoutFeedback,
     Image
 } from 'react-native';
 import { scaleSizeW, scaleSizeH, setSpText } from '@/util/screen';
+import { withNavigation } from 'react-navigation';
 
-export default () => {
-    return <View style={styles.item}>
+export default withNavigation((props) => {
+    return <TouchableWithoutFeedback onPress={() => props.navigation.navigate('Profile')}><View style={styles.item}>
         <Image style={styles.icon} resizeMode="contain" source={{ uri: 'http://i4.article.fd.zol-img.com.cn/t_w1/g5/M00/04/0A/ChMkJ1fiT5mIMZIQAAH13yoi9PcAAWPwwLDSzwAAfX3174.jpg' }}></Image>
         <View style={styles.infos}>
             <Text style={styles.title}>BEGINNER</Text>
@@ -20,7 +21,8 @@ export default () => {
             <Text style={styles.cost}> 4 WEEKS</Text>
         </View>
     </View>
-}
+    </TouchableWithoutFeedback>
+})
 
 const styles = StyleSheet.create({
     item: {
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         fontWeight: 'bold'
     },
-    level:{
+    level: {
         fontSize: setSpText(40),
         color: '#000000',
         marginBottom: scaleSizeH(35),

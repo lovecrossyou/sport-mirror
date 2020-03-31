@@ -23,7 +23,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Tab from '@/pages/tab';
 import Login from '@/pages/login';
 import ScheduleDetail from '@/pages/schedule/detail';
-
+import Profile from '@/pages/me/profile';
 let AppNavigator = createStackNavigator(
   {
     Tab: {
@@ -42,6 +42,12 @@ let AppNavigator = createStackNavigator(
       screen:ScheduleDetail,
       navigationOptions: ({ navigation }) => ({
         headerTitle:'STRENGTH',
+      }),
+    },
+    Profile:{
+      screen:Profile,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle:'Profile',
       }),
     }
   },
