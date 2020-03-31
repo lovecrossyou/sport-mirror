@@ -108,7 +108,7 @@ export default createMaterialBottomTabNavigator(
     tabBarComponent: () => null,
     activeColor: '#376BD1',
     inactiveColor: '#BABABA',
-    initialRouteName:'History',
+    initialRouteName:'Me',
     shifting: false,
     barStyle: {
       backgroundColor: '#fff',
