@@ -19,51 +19,63 @@ export default withNavigation(props => {
   return (
     <TouchableWithoutFeedback
       onPress={() => props.navigation.navigate('scheduleDetail')}>
-      <View style={styles.item}>
-        <View style={styles.item_left}>
-          <Image
-            style={styles.icon}
-            resizeMode="contain"
-            source={{
-              uri:
-                'http://img4.imgtn.bdimg.com/it/u=3120741922,82497462&fm=26&gp=0.jpg',
-            }}
-          />
-          <TouchableWithoutFeedback onPress={() => {}}>
-            <Text style={styles.text_encore}>encore</Text>
-          </TouchableWithoutFeedback>
-        </View>
-        <View style={styles.item_right}>
-          <View style={styles.time_background}>
+      <View style={styles.item_container}>
+        <View style={styles.item}>
+          <View style={styles.item_left}>
             <Image
-              resizeMode="center"
-              style={styles.time_background_img}
-              source={schedule_time_bg}
+              style={styles.icon}
+              resizeMode="contain"
+              source={{
+                uri:
+                  'http://img4.imgtn.bdimg.com/it/u=3120741922,82497462&fm=26&gp=0.jpg',
+              }}
             />
-            <Text style={styles.text_time}>12:00-12:45 PM</Text>
+            <TouchableWithoutFeedback onPress={() => {}}>
+              <Text style={styles.text_encore}>encore</Text>
+            </TouchableWithoutFeedback>
           </View>
-          <Text style={styles.text_bold_name}>STRENGTH BEGINNER</Text>
-          <Text style={styles.text_light_name}>GERREN</Text>
-          <View style={styles.view_category} >
-            <Image resizeMode="center"
-              style={styles.img_category}
-              source={icon_workouts_equipment_chair}/>
-              <Image resizeMode="center"
-              style={styles.img_category}
-              source={icon_workouts_equipment_barbell}/>
+          <View style={styles.item_right}>
+            <View style={styles.time_background}>
+              <Image
+                resizeMode="center"
+                style={styles.time_background_img}
+                source={schedule_time_bg}
+              />
+              <Text style={styles.text_time}>12:00-12:45 PM</Text>
+            </View>
+            <Text style={styles.text_bold_name}>STRENGTH BEGINNER</Text>
+            <Text style={styles.text_light_name}>GERREN</Text>
+            <View style={styles.view_category}>
+              <Image
+                resizeMode="center"
+                style={styles.img_category}
+                source={icon_workouts_equipment_chair}
+              />
+              <Image
+                resizeMode="center"
+                style={styles.img_category}
+                source={icon_workouts_equipment_barbell}
+              />
+            </View>
+            <TouchableWithoutFeedback onPress={() => {}}>
+              <Image
+                resizeMode="center"
+                style={styles.img_praise}
+                source={icon_classes_collction_filled}
+              />
+            </TouchableWithoutFeedback>
           </View>
-          <TouchableWithoutFeedback onPress={() => {}}>
-            <Image  resizeMode="center"
-              style={styles.img_praise}
-              source={icon_classes_collction_filled}/>
-          </TouchableWithoutFeedback>
         </View>
+        <View style={styles.item_space} />
       </View>
     </TouchableWithoutFeedback>
   );
 });
 
 const styles = StyleSheet.create({
+  item_container: {
+    flex: 1,
+  },
   item: {
     backgroundColor: '#ffffff',
     flexDirection: 'row',
@@ -71,6 +83,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: scaleSizeW(55),
     paddingVertical: scaleSizeH(46),
     alignItems: 'center',
+  },
+  item_space: {
+    width: '100%',
+    height: scaleSizeH(33),
   },
   icon: {
     width: scaleSizeW(200),
