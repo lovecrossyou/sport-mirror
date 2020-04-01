@@ -110,7 +110,7 @@ export default class Schedule extends Component {
           }}
           // Specify what should be rendered instead of ActivityIndicator
           renderEmptyData={() => {
-            return <Text>renderEmptyData</Text>;
+            return <View />;
           }}
           // Specify your item comparison function for increased performance
           rowHasChanged={(r1, r2) => {
@@ -131,14 +131,6 @@ export default class Schedule extends Component {
           // Add a custom RefreshControl component, used to provide pull-to-refresh functionality for the ScrollView.
           refreshControl={null}
           // Agenda theme
-          // theme={{
-          //   ...calendarTheme,
-          //   agendaDayTextColor: 'yellow',
-          //   agendaDayNumColor: 'red',
-          //   agendaTodayColor: 'red',
-          //   agendaKnobColor: 'blue',
-          // }}
-          // Agenda container style
           theme={{
             backgroundColor: '#f5f5f5',
             calendarBackground: '#f5f5f5',
@@ -150,18 +142,20 @@ export default class Schedule extends Component {
             textDisabledColor: '#131313',
             dotColor: 'transparent',
             selectedDotColor: 'transparent',
-            arrowColor: 'orange',
             disabledArrowColor: '#d9e1e8',
             monthTextColor: '#131313',
             indicatorColor: '#131313',
             textDayFontWeight: '600',
-            textMonthFontWeight: 'bold',
-            textDayHeaderFontWeight: '300',
+            // textMonthFontWeight: 'bold',
+            // textDayHeaderFontWeight: '400',
             textDayFontSize: setSpText(32),
             textMonthFontSize: setSpText(32),
-            textDayHeaderFontSize: setSpText(32),
+            textDayHeaderFontSize: setSpText(26),
           }}
-          style={{}}
+          // Agenda container style
+          style={{
+            height: 200
+          }}
         />
         {/* <FlatList
           ItemSeparatorComponent={() => <View style={styles.separator} />}
