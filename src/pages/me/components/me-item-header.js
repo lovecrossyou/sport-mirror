@@ -3,35 +3,32 @@ import {
   Text,
   View,
   StyleSheet,
-  Button,
-  FlatList,
-  SafeAreaView,
   TouchableWithoutFeedback,
   Image,
 } from 'react-native';
 import {scaleSizeW, scaleSizeH, setSpText} from '@/util/screen';
 import {withNavigation} from 'react-navigation';
-
+import icon_me_arrow from '@/assets/me/icon_me_arrow.png';
 export default withNavigation(props => {
   return (
     <TouchableWithoutFeedback
-      onPress={() => props.navigation.navigate('scheduleDetail')}>
+      onPress={() => props.navigation.navigate('Profile')}>
       <View style={styles.item}>
-        <View style={styles.item_left} >
+        <View style={styles.item_left}>
           <Image
             style={styles.avator}
             resizeMode="center"
             source={{
               uri:
-                'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2754018954,2350021655&fm=26&gp=0.jpg',
+                'http://b-ssl.duitang.com/uploads/item/201509/30/20150930140213_ZCFSr.jpeg',
             }}
           />
           <View style={styles.center}>
             <Text style={styles.text_name}>Kevin</Text>
             <Text style={styles.text_info}>Kevin.zhang@wizsolu.com</Text>
           </View>
-          <Image />
         </View>
+        <Image source={icon_me_arrow} style={styles.arrow} />
       </View>
     </TouchableWithoutFeedback>
   );
@@ -64,31 +61,8 @@ const styles = StyleSheet.create({
     fontSize: setSpText(24),
     color: '#777777',
   },
-  text_name: {
-    fontSize: setSpText(32),
-    color: '#000000',
-  },
-  items: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    marginBottom: scaleSizeH(35),
-    // backgroundColor:'#e1e1e1'
-  },
-  items_icon: {
-    width: scaleSizeW(44),
-    height: scaleSizeH(44),
-    marginLeft: scaleSizeW(10),
-  },
-  cost: {
-    fontSize: setSpText(24),
-    color: '#777777',
-    textAlign: 'right',
-    fontWeight: '500',
-  },
-  create: {
-    fontSize: setSpText(24),
-    color: '#999999',
-    textAlign: 'right',
-    marginBottom: scaleSizeH(35),
+  arrow: {
+    width: scaleSizeW(15),
+    height: scaleSizeH(27),
   },
 });
