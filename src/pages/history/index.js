@@ -12,7 +12,7 @@ import Tiltle from '@/pages/components/title';
 import WeekPanel from './components/week';
 import Summary from './components/summary';
 import Daily from './components/daily';
-import {setSpText} from '@/util/screen';
+import { setSpText } from '@/util/screen';
 
 const Header = () => {
   return (
@@ -24,7 +24,7 @@ const Header = () => {
 export default () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Header/>
+      <Header />
       <Tiltle name="WEEKLY GOAL"></Tiltle>
       <WeekPanel />
 

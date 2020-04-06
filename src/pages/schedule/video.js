@@ -30,24 +30,24 @@ export default class VideoPlayer extends Component {
     // video: Video;
 
     onLoad = (data) => {
-        this.setState({duration: data.duration});
+        this.setState({ duration: data.duration });
     };
 
     onProgress = (data) => {
-        this.setState({currentTime: data.currentTime});
+        this.setState({ currentTime: data.currentTime });
     };
 
     onEnd = () => {
-        this.setState({paused: true});
+        this.setState({ paused: true });
         this.video.seek(0)
     };
 
     onAudioBecomingNoisy = () => {
-        this.setState({paused: true})
+        this.setState({ paused: true })
     };
 
     onAudioFocusChanged = (event) => {
-        this.setState({paused: !event.hasAudioFocus})
+        this.setState({ paused: !event.hasAudioFocus })
     };
 
     getCurrentTimePercentage() {
@@ -62,9 +62,9 @@ export default class VideoPlayer extends Component {
 
         return (
             <TouchableOpacity onPress={() => {
-                this.setState({rate})
+                this.setState({ rate })
             }}>
-                <Text style={[styles.controlOption, {fontWeight: isSelected ? 'bold' : 'normal'}]}>
+                <Text style={[styles.controlOption, { fontWeight: isSelected ? 'bold' : 'normal' }]}>
                     {rate}x
                 </Text>
             </TouchableOpacity>
@@ -76,9 +76,9 @@ export default class VideoPlayer extends Component {
 
         return (
             <TouchableOpacity onPress={() => {
-                this.setState({resizeMode})
+                this.setState({ resizeMode })
             }}>
-                <Text style={[styles.controlOption, {fontWeight: isSelected ? 'bold' : 'normal'}]}>
+                <Text style={[styles.controlOption, { fontWeight: isSelected ? 'bold' : 'normal' }]}>
                     {resizeMode}
                 </Text>
             </TouchableOpacity>
@@ -90,9 +90,9 @@ export default class VideoPlayer extends Component {
 
         return (
             <TouchableOpacity onPress={() => {
-                this.setState({volume})
+                this.setState({ volume })
             }}>
-                <Text style={[styles.controlOption, {fontWeight: isSelected ? 'bold' : 'normal'}]}>
+                <Text style={[styles.controlOption, { fontWeight: isSelected ? 'bold' : 'normal' }]}>
                     {volume * 100}%
                 </Text>
             </TouchableOpacity>
@@ -107,14 +107,13 @@ export default class VideoPlayer extends Component {
             <View style={styles.container}>
                 <TouchableOpacity
                     style={styles.fullScreen}
-                    onPress={() => this.setState({paused: !this.state.paused})}
+                    onPress={() => this.setState({ paused: !this.state.paused })}
                 >
                     <Video
                         ref={(ref) => {
                             this.video = ref
                         }}
-                        /* For ExoPlayer */
-                        source={{ uri: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4', type: 'mp4' }} 
+                        source={require('@/assets/test.mp4')}
                         style={styles.fullScreen}
                         rate={this.state.rate}
                         paused={this.state.paused}
@@ -152,10 +151,10 @@ export default class VideoPlayer extends Component {
                             {this.renderResizeModeControl('stretch')}
                         </View>
                     </View>
-        <View style={styles.progress}>
-            <View style={[styles.innerProgressCompleted, {flex: flexCompleted}]}/>
-            <View style={[styles.innerProgressRemaining, {flex: flexRemaining}]}/>
-        </View>
+                    <View style={styles.progress}>
+                        <View style={[styles.innerProgressCompleted, { flex: flexCompleted }]} />
+                        <View style={[styles.innerProgressRemaining, { flex: flexRemaining }]} />
+                    </View>
                 </View>
             </View>
         );
@@ -191,11 +190,11 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     innerProgressCompleted: {
-        height: 20,
+        height: 4,
         backgroundColor: '#cccccc',
     },
     innerProgressRemaining: {
-        height: 20,
+        height: 4,
         backgroundColor: '#2C2C2C',
     },
     generalControls: {
