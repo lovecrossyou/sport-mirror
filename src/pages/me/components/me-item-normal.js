@@ -38,7 +38,7 @@ export const MeItemNormal = ({icon, title, isShowArrow, itemCallBack}) => {
 };
 export const MeItemNormalRight = ({
   leftIcon,
-  rightIcon,
+  rightText,
   title,
   itemCallBack,
 }) => {
@@ -50,13 +50,46 @@ export const MeItemNormalRight = ({
           <Text style={styles.text_title}>{title}</Text>
         </View>
         <View style={styles.item_right}>
-          <Image style={styles.icon_right} source={rightIcon} />
+          <Text style={styles.text_right}>{rightText}</Text>
           <Image source={icon_me_arrow} style={styles.arrow} />
         </View>
       </View>
     </TouchableWithoutFeedback>
   );
 };
+export const MeItemNormalOnlyValue = ({
+  leftIcon,
+  rightText,
+  title,
+  itemCallBack,
+}) => {
+  return (
+    <TouchableWithoutFeedback onPress={() => itemCallBack}>
+      <View style={styles.item}>
+        <View style={styles.item_left}>
+          <Image style={styles.icon} source={leftIcon} />
+          <Text style={styles.text_title}>{title}</Text>
+        </View>
+        <View style={styles.item_right}>
+          <Text style={styles.text_right}>{rightText}</Text>
+        </View>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
+export const MeConnectMirrorView = ({title, des, itemCallBack}) => {
+  return (
+    <View style={styles.connect_container}>
+      <TouchableWithoutFeedback onPress={() => itemCallBack}>
+        <View style={styles.connect_btn}>
+          <Text style={styles.connect_btn_title}>{title}</Text>
+        </View>
+      </TouchableWithoutFeedback>
+      <Text style={styles.connect_btn_des}>{des}</Text>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   item: {
     width: '100%',
@@ -94,9 +127,10 @@ const styles = StyleSheet.create({
     width: scaleSizeW(60),
     height: scaleSizeH(60),
   },
-  icon_right: {
-    width: scaleSizeW(48),
-    height: scaleSizeW(48),
+  text_right: {
+    fontSize: setSpText(32),
+    fontWeight: '400',
+    color: '#999999',
     marginRight: scaleSizeW(10),
   },
   arrow: {
@@ -112,5 +146,34 @@ const styles = StyleSheet.create({
     width: '100%',
     height: scaleSizeW(1),
     backgroundColor: '#EEEEEE',
+  },
+  connect_container: {
+    backgroundColor: '#ffffff',
+    width: '100%',
+    flexDirection: 'column',
+  },
+  connect_btn: {
+    marginLeft: scaleSizeW(53),
+    marginRight: scaleSizeW(53),
+    marginTop: scaleSizeW(37),
+    marginBottom: scaleSizeW(37),
+    height: scaleSizeH(93),
+    borderColor: '#313131',
+    borderWidth: 1,
+    borderRadius: scaleSizeH(47),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  connect_btn_title: {
+    fontSize: setSpText(32),
+    fontWeight: '500',
+    color: '#2B2B2B',
+  },
+  connect_btn_des: {
+    marginHorizontal: scaleSizeW(53),
+    fontSize: setSpText(27),
+    fontWeight: '400',
+    color: '#999999',
+    marginBottom: scaleSizeH(38),
   },
 });

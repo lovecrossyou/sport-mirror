@@ -7,6 +7,8 @@ import {
   MeItemSpace,
   MeItemLine,
   MeItemNormalRight,
+  MeConnectMirrorView,
+  MeItemNormalOnlyValue,
 } from './components/me-item-normal';
 import icon_me_bluetooth from '@/assets/me/icon_me_bluetooth.png';
 import icon_me_heart_rate from '@/assets/me/icon_me_heart_rate.png';
@@ -26,48 +28,63 @@ export default class Me extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <Header />
-        <ScrollView
-          style={styles.container_scroll}
-          contentContainerStyle={styles.container_scroll}>
+        <ScrollView style={styles.container_scroll}>
           <MeItemHeader />
           <MeItemSpace />
-          <MeItemNormal title="MIRROR CONNECTED" icon={icon_me_mirror} />
+          {/* MIRROR */}
+          <MeItemNormal title="MIRROR" icon={icon_me_mirror} />
+          <MeItemLine />
+          <MeConnectMirrorView
+            title="CONNECT TO MIRROR"
+            des="You’ll need to be the same WiFi network as the mirror  you want to connect to."
+          />
+          <MeItemSpace />
+          {/* HEART RATE */}
+          <MeItemNormal title="HEART RATE" icon={icon_me_heart_rate} />
+          <MeItemLine />
+          <MeConnectMirrorView
+            title="CONNECT MONITOR"
+            des="Connect an apple watch or other Bluetooth Heart Rate Monitor to track your performance."
+          />
+          {/* MUSIC */}
+          <MeItemSpace />
+          <MeItemNormalRight
+            leftIcon={icon_me_heart_rate}
+            rightText="Mirror Music"
+            title="MUSIC"
+            itemCallBack={() => {
+              console.log('CONNECT TO HEART RATE');
+            }}
+          />
+          {/* AUDIO */}
           <MeItemLine />
           <MeItemNormalRight
             leftIcon={icon_me_heart_rate}
-            rightIcon={icon_me_bluetooth}
-            title="CONNECT TO HEART RATE"
+            rightText="Mirror Speakers"
+            title="AUDIO"
             itemCallBack={() => {
               console.log('CONNECT TO HEART RATE');
             }}
           />
           <MeItemSpace />
-          <MeItemNormal
+          <MeItemNormalOnlyValue
+            leftIcon={icon_me_household_members}
+            rightText="1/5"
             title="HOUSEHOLD MEMBERS"
-            icon={icon_me_household_members}
-            isShowArrow={true}
             itemCallBack={() => {
               console.log('HOUSEHOLD MEMBERS');
             }}
           />
           <MeItemSpace />
           <MeItemNormal
-            title="RESET MIRROR"
+            title="ADVANCED OPTIONS"
             icon={icon_me_reset}
             isShowArrow={true}
             itemCallBack={() => {
               console.log('RESET MIRROR');
             }}
           />
-          <MeItemLine />
-          <MeItemNormal
-            title="SUPPORT & FAQS"
-            icon={icon_me_support}
-            isShowArrow={true}
-            itemCallBack={() => {
-              console.log('SUPPORT & FAQS');
-            }}
-          />
+          <View style={styles.scroll_bottom_space} />
         </ScrollView>
       </SafeAreaView>
     );
@@ -105,5 +122,9 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 40,
+  },
+  scroll_bottom_space: {
+    width: '100%',
+    height: 80,
   },
 });

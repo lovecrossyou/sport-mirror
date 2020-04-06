@@ -43,7 +43,7 @@ export default class Schedule extends Component {
         /> */}
         <Agenda
           items={{
-            '2020-04-01': [
+            '2020-04-06': [
               {name: 'item 1 - any js object'},
               {name: 'item 1 - any js object'},
               {name: 'item 1 - any js object'},
@@ -51,14 +51,22 @@ export default class Schedule extends Component {
               {name: 'item 1 - any js object'},
               {name: 'item 1 - any js object'},
             ],
-            '2020-04-02': [
+            '2020-04-08': [
+              {name: 'item 1 - any js object'},
+              {name: 'item 1 - any js object'},
+              {name: 'item 1 - any js object'},
+              {name: 'item 1 - any js object'},
+              {name: 'item 1 - any js object'},
+              {name: 'item 1 - any js object'},
+            ],
+            '2020-04-09': [
               {name: 'item 2 - any js object', height: 80},
               {name: 'item 2 - any js object', height: 80},
               {name: 'item 2 - any js object', height: 80},
               {name: 'item 2 - any js object', height: 80},
               {name: 'item 2 - any js object', height: 80},
             ],
-            '2020-04-03': [
+            '2020-04-10': [
               {name: 'item 2 - any js object', height: 80},
               {name: 'item 2 - any js object', height: 80},
               {name: 'item 2 - any js object', height: 80},
