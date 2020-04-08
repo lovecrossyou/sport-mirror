@@ -5277,6 +5277,11 @@ react-native-af-video-player@^0.2.1:
     react-native-vector-icons "^4.4.2"
     react-native-video "^2.0.0"
 
+react-native-ble-manager@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.npm.taobao.org/react-native-ble-manager/download/react-native-ble-manager-7.2.0.tgz#bbbf0e4b1dd01f131c26192413fb7cfa42d738f6"
+  integrity sha1-u78OSx3QHxMcJhkkE/t8+kLXOPY=
+
 react-native-calendars@^1.264.0:
   version "1.264.0"
   resolved "https://registry.npm.taobao.org/react-native-calendars/download/react-native-calendars-1.264.0.tgz#552cfff1480ab6c860f54e12ec2b82f9b514aae6"

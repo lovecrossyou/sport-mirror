@@ -35,5 +35,7 @@ target 'AwesomeProject' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   use_native_modules!
+  pod 'react-native-ble-manager', :path => '../node_modules/react-native-ble-manager'
+
 end
 

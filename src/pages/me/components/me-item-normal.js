@@ -80,7 +80,7 @@ export const MeItemNormalOnlyValue = ({
 export const MeConnectMirrorView = ({title, des, itemCallBack}) => {
   return (
     <View style={styles.connect_container}>
-      <TouchableWithoutFeedback onPress={() => itemCallBack}>
+      <TouchableWithoutFeedback onPress={() => itemCallBack()}>
         <View style={styles.connect_btn}>
           <Text style={styles.connect_btn_title}>{title}</Text>
         </View>
