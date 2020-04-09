@@ -40,12 +40,15 @@ export default class Me extends Component {
             des="You’ll need to be the same WiFi network as the mirror  you want to connect to."
             itemCallBack={() => {
               console.log('CONNECT TO MIRROR');
-              this.refs.bluetoothUnavailableModal.openModal();
+              this.refs.bluetoothUnavailableModal.openModal(false);
             }}
           />
           <MeItemSpace />
           {/* HEART RATE */}
-          <MeItemNormal title="HEART RATE" icon={icon_me_heart_rate} />
+          <MeItemNormal title="HEART RATE" icon={icon_me_heart_rate} itemCallBack={() => {
+              console.log('HEART RATE');
+              this.refs.bluetoothUnavailableModal.openModal(true);
+            }}/>
           <MeItemLine />
           <MeConnectMirrorView
             title="CONNECT MONITOR"

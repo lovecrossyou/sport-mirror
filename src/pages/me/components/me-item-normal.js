@@ -25,7 +25,7 @@ export const MeItemLine = () => {
 
 export const MeItemNormal = ({icon, title, isShowArrow, itemCallBack}) => {
   return (
-    <TouchableWithoutFeedback onPress={() => itemCallBack}>
+    <TouchableWithoutFeedback onPress={() => itemCallBack()}>
       <View style={styles.item}>
         <View style={styles.item_left}>
           <Image style={styles.icon} source={icon} />
@@ -43,7 +43,7 @@ export const MeItemNormalRight = ({
   itemCallBack,
 }) => {
   return (
-    <TouchableWithoutFeedback onPress={() => itemCallBack}>
+    <TouchableWithoutFeedback onPress={() => itemCallBack()}>
       <View style={styles.item}>
         <View style={styles.item_left}>
           <Image style={styles.icon} source={leftIcon} />
@@ -64,7 +64,7 @@ export const MeItemNormalOnlyValue = ({
   itemCallBack,
 }) => {
   return (
-    <TouchableWithoutFeedback onPress={() => itemCallBack}>
+    <TouchableWithoutFeedback onPress={() => itemCallBack()}>
       <View style={styles.item}>
         <View style={styles.item_left}>
           <Image style={styles.icon} source={leftIcon} />
