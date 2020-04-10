@@ -10,7 +10,7 @@ import {
   MeConnectMirrorView,
   MeItemNormalOnlyValue,
 } from './components/me-item-normal';
-import {BluetoothUnavailableModal} from './components/me-modal';
+import {BluetoothUnavailableModal, MusicSourceModal} from './components/me-modal';
 import icon_me_bluetooth from '@/assets/me/icon_me_bluetooth.png';
 import icon_me_heart_rate from '@/assets/me/icon_me_heart_rate.png';
 import icon_me_household_members from '@/assets/me/icon_me_household-members.png';
@@ -61,7 +61,8 @@ export default class Me extends Component {
             rightText="Mirror Music"
             title="MUSIC"
             itemCallBack={() => {
-              console.log('CONNECT TO HEART RATE');
+              console.log('Mirror Music');
+              this.refs.musicSourceModal.openModal();
             }}
           />
           {/* AUDIO */}
@@ -94,6 +95,7 @@ export default class Me extends Component {
           />
           <View style={styles.scroll_bottom_space} />
           <BluetoothUnavailableModal ref={"bluetoothUnavailableModal"} />
+          <MusicSourceModal ref={"musicSourceModal"} />
         </ScrollView>
       </SafeAreaView>
     );

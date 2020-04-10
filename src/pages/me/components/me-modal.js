@@ -17,7 +17,8 @@ import icon_me_heart_rate_connected from '@/assets/me/icon_me_heart_rate_connect
 import icon_me_heart_rate_mirrorhrm from '@/assets/me/icon_me_heart_rate_mirrorhrm.png';
 import icon_me_loading from '@/assets/me/icon_me_loading.png';
 import icon_me_heart_rate_unconnect from '@/assets/me/icon_me_heart_rate_unconnect.png';
-
+import icon_me_music_macvon from '@/assets/me/icon_me_music_macvon.png';
+import icon_me_music_sotify from '@/assets/me/icon_me_music_sotify.png';
 export class BluetoothUnavailableModal extends Component {
   state = {
     isModalVisible: false,
@@ -96,7 +97,10 @@ export class BluetoothUnavailableModal extends Component {
                 </View>
                 {/*  */}
                 <View style={styles.bluetooth_available_item}>
-                  <Image source={icon_me_loading} style={styles.bluetooth_available_scan_img} />
+                  <Image
+                    source={icon_me_loading}
+                    style={styles.bluetooth_available_scan_img}
+                  />
                   <View style={styles.bluetooth_available_item_middle}>
                     <Text style={styles.bluetooth_available_item_title}>
                       Scanning...
@@ -122,6 +126,83 @@ export class BluetoothUnavailableModal extends Component {
     );
   }
 }
+
+export class MusicSourceModal extends Component {
+  state = {
+    isModalVisible: false,
+  };
+
+  toggleModal(isshow) {
+    this.setState({isModalVisible: isshow});
+  }
+  openModal() {
+    this.toggleModal(true);
+  }
+  closeModal() {
+    this.toggleModal(false);
+  }
+
+  render() {
+    const deviceWidth = Dimensions.get('window').width;
+
+    return (
+      <Modal
+        style={{margin: 0}}
+        isVisible={this.state.isModalVisible}
+        deviceWidth={deviceWidth}
+        swipeDirection="left">
+        <View style={styles.modal_container}>
+          <View style={styles.bluetooth_unavailable_container}>
+            <View style={styles.bluetooth_unavailable_title}>
+              <View />
+              <Text style={styles.bluetooth_unavailable_title_text}>
+                MUSIC SOURCE
+              </Text>
+
+              <TouchableWithoutFeedback onPress={() => this.closeModal()}>
+                <Image source={icon_me_close} style={styles.close_btn} />
+              </TouchableWithoutFeedback>
+            </View>
+
+            <View style={{width: '100%'}}>
+
+              {/*  */}
+              <View style={styles.bluetooth_available_item}>
+                <Image
+                  source={icon_me_music_macvon}
+                  style={styles.bluetooth_available_item_img}
+                />
+                <View style={styles.bluetooth_available_item_middle}>
+                  <Text style={styles.bluetooth_available_item_title}>
+                    MACVON MUSIC
+                  </Text>
+                </View>
+                <Image
+                  source={icon_me_heart_rate_connected}
+                  style={styles.bluetooth_available_item_right_Img}
+                />
+              </View>
+              {/*  */}
+              <View style={styles.bluetooth_available_item}>
+                <Image
+                  source={icon_me_music_sotify}
+                  style={styles.bluetooth_available_item_img}
+                />
+                <View style={styles.bluetooth_available_item_middle}>
+                  <Text style={styles.bluetooth_available_item_title}>
+                    SPOTIFY
+                  </Text>
+                </View>
+                <View />
+              </View>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    );
+  }
+}
+
 const styles = StyleSheet.create({
   modal_container: {
     width: '100%',
@@ -210,5 +291,5 @@ const styles = StyleSheet.create({
     width: scaleSizeW(31),
     height: scaleSizeW(31),
     marginLeft: scaleSizeW(11),
-  }
+  },
 });

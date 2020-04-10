@@ -25,7 +25,7 @@ export const MeItemLine = () => {
 
 export const MeItemNormal = ({icon, title, isShowArrow, itemCallBack}) => {
   return (
-    <TouchableWithoutFeedback onPress={() => itemCallBack()}>
+    <TouchableWithoutFeedback onPress={() => itemCallBack && itemCallBack()}>
       <View style={styles.item}>
         <View style={styles.item_left}>
           <Image style={styles.icon} source={icon} />
