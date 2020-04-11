@@ -165,7 +165,6 @@ export class MusicSourceModal extends Component {
             </View>
 
             <View style={{width: '100%'}}>
-
               {/*  */}
               <View style={styles.bluetooth_available_item}>
                 <Image

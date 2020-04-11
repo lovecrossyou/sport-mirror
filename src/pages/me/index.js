@@ -54,6 +54,9 @@ export default class Me extends Component {
           <MeConnectMirrorView
             title="CONNECT MONITOR"
             des="Connect an apple watch or other Bluetooth Heart Rate Monitor to track your performance."
+            itemCallBack={()=>{
+              
+            }}
           />
           {/* MUSIC */}
           <MeItemSpace />

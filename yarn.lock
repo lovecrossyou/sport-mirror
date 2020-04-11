@@ -5309,7 +5309,7 @@ react-native-gesture-handler@^1.6.1:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
-react-native-iphone-x-helper@^1.2.1:
+react-native-iphone-x-helper@^1.0.3, react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npm.taobao.org/react-native-iphone-x-helper/download/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha1-ZF4v+7tJ6AhEu0y740oSb9oeZ3I=
@@ -5318,6 +5318,14 @@ react-native-keep-awake@^2.0.6:
   version "2.0.6"
   resolved "https://registry.npm.taobao.org/react-native-keep-awake/download/react-native-keep-awake-2.0.6.tgz#d8eaffe0a6377cc197469d9f06c7f317225403db"
   integrity sha1-2Or/4KY3fMGXRp2fBsfzFyJUA9s=
+
+react-native-keyboard-aware-scroll-view@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.npm.taobao.org/react-native-keyboard-aware-scroll-view/download/react-native-keyboard-aware-scroll-view-0.9.1.tgz#9e54b565a5f19b30bed12221d48921781f7630af"
+  integrity sha1-nlS1ZaXxmzC+0SIh1IkheB92MK8=
+  dependencies:
+    prop-types "^15.6.2"
+    react-native-iphone-x-helper "^1.0.3"
 
 react-native-linear-gradient@^2.3.0:
   version "2.5.6"

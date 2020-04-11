@@ -7,8 +7,10 @@ import {
   Image,
   Button,
   Dimensions,
+  TextInput,
 } from 'react-native';
 import Modal from 'react-native-modal';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {scaleSizeW, scaleSizeH, setSpText} from '@/util/screen';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import icon_me_close from '@/assets/me/icon_me_close.png';
@@ -44,68 +46,94 @@ export default class MusicSpotityModal extends Component {
       <Modal
         style={{margin: 0}}
         isVisible={this.state.isModalVisible}
-        deviceWidth={deviceWidth}
-        swipeDirection="left">
+        deviceWidth={deviceWidth}>
         <View style={styles.modal_container}>
-          <View style={styles.music_spotity_container}>
-            <TouchableWithoutFeedback onPress={() => this.closeModal()}>
-              <Image source={icon_back} style={styles.arrow_left} />
-            </TouchableWithoutFeedback>
-            <View style={styles.logo_img_container}>
-              <Image
-                source={icon_me_music_spotify_logo}
-                style={styles.logo_img}
-              />
-            </View>
-            <Line />
-            <Text style={styles.top_text}>To continue,log in to Spotify</Text>
-            <View
-              style={[
-                styles.button_container,
-                {marginTop: scaleSizeH(55), backgroundColor: '#425893'},
-              ]}>
-              <Image
-                source={icon_me_music_facebook}
-                style={styles.button_icon}
-              />
-              <Text style={styles.button_text_title}>
-                {' '}
-                CONTINUE WITH FACEBOOK{' '}
-              </Text>
-            </View>
-            <View
-              style={[
-                styles.button_container,
-                {marginTop: scaleSizeH(26), backgroundColor: '#010101'},
-              ]}>
-              <Image
-                source={icon_me_music_facebook}
-                style={styles.button_icon}
-              />
-              <Text style={styles.button_text_title}>
-                {' '}
-                CONTINUE WITH APPLE{' '}
-              </Text>
-            </View>
-            <View style={styles.space_or_container}>
-              <View style={styles.space_or_line} />
-              <Text style={styles.space_or_text}>OR</Text>
-            </View>
-            <View style={styles.remember_container}>
-              <Image
-                source={icon_me_music_spotify_rember_me_unselected}
-                style={{width: scaleSizeW(40), height: scaleSizeW(40)}}
-              />
-              <Text style={styles.remeber_text}>Rember me</Text>
-            </View>
-            <View
-              style={[
-                styles.button_container,
-                {marginBottom: scaleSizeH(80), backgroundColor: '#57B660'},
-              ]}>
-              <Text style={styles.button_text_title}>LOGIN</Text>
-            </View>
+          <View style={[styles.music_spotity_container]}>
+            <KeyboardAwareScrollView>
+              <View
+                style={[
+                  styles.keyboard_aware_scrollView,
+                  {width: deviceWidth},
+                ]}>
+                <TouchableWithoutFeedback onPress={() => this.closeModal()}>
+                  <Image source={icon_back} style={styles.arrow_left} />
+                </TouchableWithoutFeedback>
+                <View style={styles.logo_img_container}>
+                  <Image
+                    source={icon_me_music_spotify_logo}
+                    style={styles.logo_img}
+                  />
+                </View>
+                <Line />
+                <Text style={styles.top_text}>
+                  To continue,log in to Spotify
+                </Text>
+                <View
+                  style={[
+                    styles.button_container,
+                    {marginTop: scaleSizeH(55), backgroundColor: '#425893'},
+                  ]}>
+                  <Image
+                    source={icon_me_music_facebook}
+                    style={styles.button_icon}
+                  />
+                  <Text style={styles.button_text_title}>
+                    {' '}
+                    CONTINUE WITH FACEBOOK{' '}
+                  </Text>
+                </View>
+                <View
+                  style={[
+                    styles.button_container,
+                    {marginTop: scaleSizeH(26), backgroundColor: '#010101'},
+                  ]}>
+                  <Image
+                    source={icon_me_music_apple}
+                    style={[styles.button_icon, {width: scaleSizeW(27)}]}
+                    resizeMode="contain"
+                  />
+                  <Text style={styles.button_text_title}>
+                    {' '}
+                    CONTINUE WITH APPLE{' '}
+                  </Text>
+                </View>
+                <View style={styles.space_or_container}>
+                  <View style={styles.space_or_line} />
+                  <Text style={styles.space_or_text}>OR</Text>
+                </View>
+                <View
+                  style={[styles.text_input_c, {marginTop: scaleSizeW(27)}]}>
+                  <TextInput
+                    style={styles.text_input}
+                    placeholder="Email address or username"
+                    onChangeText={() => {}}
+                  />
+                </View>
+                <View
+                  style={[styles.text_input_c, {marginTop: scaleSizeW(27)}]}>
+                  <TextInput
+                    style={styles.text_input}
+                    placeholder="Password"
+                    onChangeText={() => {}}
+                  />
+                </View>
 
+                <View style={styles.remember_container}>
+                  <Image
+                    source={icon_me_music_spotify_rember_me_unselected}
+                    style={{width: scaleSizeW(40), height: scaleSizeW(40)}}
+                  />
+                  <Text style={styles.remeber_text}>Rember me</Text>
+                </View>
+                <View
+                  style={[
+                    styles.button_container,
+                    {marginBottom: scaleSizeH(80), backgroundColor: '#57B660'},
+                  ]}>
+                  <Text style={styles.button_text_title}>LOGIN</Text>
+                </View>
+              </View>
+            </KeyboardAwareScrollView>
           </View>
         </View>
       </Modal>
@@ -119,6 +147,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-end',
+    margin: 0,
+    padding: 0,
   },
   music_spotity_container: {
     borderTopLeftRadius: scaleSizeW(33),
@@ -127,6 +157,14 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'column',
     alignItems: 'center',
+    padding: 0,
+  },
+  keyboard_aware_scrollView: {
+    width: '100%',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: 0,
+    margin: 0,
   },
   arrow_left: {
     width: scaleSizeW(20),
@@ -206,11 +244,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: scaleSizeW(40),
     marginBottom: scaleSizeH(33),
+    marginTop: scaleSizeH(21),
   },
   remeber_text: {
     fontWeight: '400',
     color: '#999999',
     fontSize: setSpText(27),
     marginLeft: scaleSizeW(12),
+  },
+  text_input: {
+    flex: 1,
+  },
+  text_input_c: {
+    height: scaleSizeH(80),
+    width: scaleSizeW(670),
+    borderWidth: scaleSizeW(1),
+    borderColor: '#E5E5E5',
+    paddingHorizontal: scaleSizeW(27),
   },
 });
