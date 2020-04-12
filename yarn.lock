@@ -5196,7 +5196,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.5.10, prop-types@^15.5.6, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.6, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -5385,6 +5385,13 @@ react-native-screens@^2.4.0:
   resolved "https://github.com/abbasfreestyle/react-native-slider.git#c53b4965c5e4c3ec258479417898dece367e603e"
   dependencies:
     prop-types "^15.5.6"
+
+react-native-super-grid@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npm.taobao.org/react-native-super-grid/download/react-native-super-grid-3.2.0.tgz#207c18d2061fe7e18be3937ce900c7dfd5ec21a2"
+  integrity sha1-IHwY0gYf5+GL45N86QDH39XsIaI=
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native-vector-icons@^4.4.2:
   version "4.6.0"

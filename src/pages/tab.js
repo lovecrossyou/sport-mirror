@@ -19,6 +19,7 @@ import Workout from '@/pages/workout';
 import Schedule from '@/pages/schedule';
 import History from '@/pages/history';
 import Me from '@/pages/me';
+import Community from '@/pages/community';
 
 export default createMaterialBottomTabNavigator(
   {
@@ -83,6 +84,26 @@ export default createMaterialBottomTabNavigator(
           ),
       },
     },
+    Community: {
+      screen: Community,
+      navigationOptions: {
+        tabBarLabel: 'Community',
+        tabBarIcon: ({focused, tintColor}) =>
+          focused ? (
+            <Image
+              resizeMode="contain"
+              style={styles.icon_wallet}
+              source={budget_icon}
+            />
+          ) : (
+            <Image
+              resizeMode="contain"
+              style={styles.icon_wallet}
+              source={budget_icon_d}
+            />
+          ),
+      },
+    },
     Me: {
       screen: Me,
       navigationOptions: {
@@ -108,7 +129,7 @@ export default createMaterialBottomTabNavigator(
     tabBarComponent: () => null,
     activeColor: '#376BD1',
     inactiveColor: '#BABABA',
-    initialRouteName:'Me',
+    initialRouteName:'Community',
     shifting: false,
     barStyle: {
       backgroundColor: '#fff',

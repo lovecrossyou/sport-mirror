@@ -43,7 +43,7 @@ export default class Schedule extends Component {
         /> */}
         <Agenda
           items={{
-            '2020-04-06': [
+            '2020-04-12': [
               {name: 'item 1 - any js object'},
               {name: 'item 1 - any js object'},
               {name: 'item 1 - any js object'},

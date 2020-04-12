@@ -47,11 +47,17 @@ const HeartRate = () => {
   );
 };
 
-const CoachInfo = () => {};
+const CoachInfo = () => {
+  return <view />;
+};
 
-const Equipment = () => {};
+const Equipment = () => {
+  return <view />;
+};
 
-const Instruction = () => {};
+const Instruction = () => {
+  return <view />;
+};
 
 export default () => {
   return (
@@ -60,11 +66,11 @@ export default () => {
       <VideoView />
       <HeartRate />
       <Tiltle name="COACH" />
-      <CoachInfo />
+      {/* <CoachInfo /> */}
       <Tiltle name="EQUIPMENT" />
-      <Equipment />
+      {/* <Equipment /> */}
       <Tiltle name="INTRODUTION" />
-      <Instruction />
+      {/* <Instruction /> */}
     </ScrollView>
   );
 };
